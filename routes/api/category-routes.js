@@ -35,6 +35,10 @@ router.get("/:id", async (req, res) => {
         },
       ],
     });
+    if(!categoryData){
+      res.status(404).json('No category with that id exists.');
+      return;
+    }
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
@@ -78,6 +82,10 @@ router.delete("/:id", async (req, res) => {
         id: req.params.id,
       }
     });
+    if(!deletedCategory){
+      res.status(404).json('No category with that id exists.');
+      return;
+    }
     res.status(200).json(deletedCategory);
   } catch (err) {
     res.status(500).json(err);
