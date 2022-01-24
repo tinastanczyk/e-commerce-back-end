@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
           model: Category,
         },
         {
+          // showing tags by including the productTag table
           model: Tag,
           through: ProductTag,
           as: 'tags',
@@ -39,6 +40,7 @@ router.get('/:id', async (req, res) => {
           model: Category
         },
         {
+          // showing tags by including the productTag table
           model: Tag,
           through: ProductTag,
           as: 'tags',

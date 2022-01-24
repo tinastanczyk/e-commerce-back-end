@@ -23,6 +23,7 @@ Product.init(
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
+      // checking to see if the price is in decimal form
       validate: {
         isDecimal: true
       }
@@ -31,6 +32,7 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
+      // checking to see if the stock value is a number
       validate: {
         isNumeric: true
       }
@@ -38,6 +40,7 @@ Product.init(
     category_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      // linking the category_id to the id column in the Category table
       references: {
         model: 'category',
         key: 'id',
